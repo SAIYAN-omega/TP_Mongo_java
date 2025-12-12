@@ -1,0 +1,30 @@
+db.createCollection("products", {
+	validators: {
+		$jsonSchema: {
+			bsonType: "object",
+			required: ["name", "category", "color"],
+			properties: {
+				name: {
+				     bsonType: "string",
+				     description: "le nom est obligatoire"
+				},
+				category: {
+			                  bsonType: "string",
+                                          description: "la category est obligatoire"
+			        },
+                                color: {
+                                       bsonType: "string",
+                                       description: "la coleur est obligatoire"
+                                },
+                                price: {
+                                      bsonType: "float",
+                                      minimum: 0.0f
+                                },
+                                quantity: {
+                                         bsonType: "int",
+				         minimum: 0
+                                }
+			}
+		}
+	}
+})
